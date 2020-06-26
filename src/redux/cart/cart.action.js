@@ -6,12 +6,25 @@ export const ToggleCartIcon = () => {
     }
 }
 
-export const AddItems = (item) =>{
+export const AddItem = (item) =>{
     return{
         type:cartTypes.ADD_ITEM,
         payload:item
     }
 }
 
+export const ClearItem = (item) =>{
+    return{
+        type:cartTypes.CLEAR_ITEM,
+        payload:item
+    }
+}
+
+export const RemoveItem = (item) =>{
+    return{
+        type:cartTypes.REMOVE_ITEM,
+        payload:item
+    }
+}
 
 
