@@ -1,14 +1,17 @@
 import React from 'react';
-import './App.css';
-import Homepage from "./pages/Homepage/homepage.jsx";
+import { auth,createUserProfileDocument } from "./firebase/firebase.utils";
+import { connect } from "react-redux";
 import { Route,Switch,Redirect } from "react-router-dom";
+
+import Homepage from "./pages/Homepage/homepage.jsx";
 import Shop from "./pages/Shop/shop.component.jsx";
 import Header from "./components/header/Header.component.jsx";
 import SignInAndSignUP from "./pages/Sign-inandSign-up/Sign-in-and-Sign-up.component.jsx";
-import { auth,createUserProfileDocument } from "./firebase/firebase.utils";
-import { connect } from "react-redux";
+import CheckoutPage from "./pages/checkout/checkout.component.jsx"
+
 import setCurrentUser from "./redux/user/user.action";
 
+import './App.css';
 class App extends React.Component {
 
   constructor(){
@@ -56,6 +59,7 @@ class App extends React.Component {
           render= {() => 
             this.props.currentUser ? (<Redirect to="/" />) : (<SignInAndSignUP/>)
           }/>
+        <Route exact path="/checkout" component={CheckoutPage}/>
       </Switch>
       </div>
     );
