@@ -14,7 +14,7 @@ import CartDropDown from "../cart-dropdown/cart-dropdown.component"
 import CartIcon from "../cart-icon/cart-icon.component"
 
 
-import { HeaderContainer,LogoContainer,OptionsContainer,OptionDiv,OptionLink } from "./Header.styles";
+import { HeaderContainer,LogoContainer,OptionsContainer,OptionLink } from "./Header.styles";
 
 const Header = ({currentUser,hidden}) => (
     <HeaderContainer>
@@ -26,7 +26,7 @@ const Header = ({currentUser,hidden}) => (
             <OptionLink to="/shop">CONTACT</OptionLink>
             {
             currentUser?
-                <OptionDiv onClick={() => auth.signOut()}>SIGN OUT</OptionDiv>
+                <OptionLink as='div' onClick={() => auth.signOut()}>SIGN OUT</OptionLink>
                 :
                 <OptionLink to="/signin">SIGN IN</OptionLink>
             }
