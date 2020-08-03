@@ -4,13 +4,13 @@ export const googleSignInStart = () => ({
     type: UserActionTypes.GOOGLE_SIGN_IN_START
 });
 
-export const googleSignInSuccess = user => ({
-    type: UserActionTypes.GOOGLE_SIGN_IN_SUCCESS,
+export const SignInSuccess = user => ({
+    type: UserActionTypes.SIGN_IN_SUCCESS,
     payload: user
 });
 
-export const googleSignInFailure = error =>({
-    type: UserActionTypes.GOOGLE_SIGN_IN_FAILURE,
+export const SignInFailure = error =>({
+    type: UserActionTypes.SIGN_IN_FAILURE,
     payload: error
 });
 
@@ -19,13 +19,4 @@ export const emailSignInStart = emailandpassword => ({
     payload: emailandpassword
 });
 
-export const emailSignInSuccess = user => ({
-    type: UserActionTypes.EMAIL_SIGN_IN_SUCCESS,
-    payload: user
-});
-
-export const emailSignInFailure = error =>({
-    type: UserActionTypes.EMAIL_SIGN_IN_FAILURE,
-    payload: error
-});
 
