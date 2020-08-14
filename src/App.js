@@ -8,10 +8,16 @@ import Header from "./components/header/Header.component.jsx";
 import SignInAndSignUP from "./pages/Sign-inandSign-up/Sign-in-and-Sign-up.component.jsx";
 import CheckoutPage from "./pages/checkout/checkout.component.jsx"
 
+import { checkUserSession } from "./redux/user/user.action";
+
 import './App.css';
 
 class App extends React.Component {
 
+  componentDidMount(){
+    const { checkUserSession } = this.props;
+    checkUserSession();
+  }
   render(){
     return (
       <div>
@@ -38,4 +44,10 @@ const mapStateToProps = ({user}) => {
   }
 }
 
-export default connect(mapStateToProps)(App);
+const mapDispatchToProps = (dispatch) => {
+  return {
+    checkUserSession: () => dispatch(checkUserSession())
+  }
+}
+
+export default connect(mapStateToProps,mapDispatchToProps)(App);

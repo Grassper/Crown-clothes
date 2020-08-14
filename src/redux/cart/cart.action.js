@@ -21,10 +21,15 @@ export const ClearItem = (item) =>{
 }
 
 export const RemoveItem = (item) =>{
-    return{
+    return {
         type:cartTypes.REMOVE_ITEM,
         payload:item
     }
 }
 
+export const ClearCart = () => {
+    return {
+        type:cartTypes.CLEAR_CART
+    }
+}
 

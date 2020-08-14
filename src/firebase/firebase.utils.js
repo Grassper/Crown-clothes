@@ -82,4 +82,15 @@ export const convertCollectionSnapShotToMap = (collections) => {
   },{});
 }
 
+// get current user in the firebase database it is used to session persistance
+
+export const getCurrentUser = () => {
+  return new Promise((resolve, reject) => {
+    const unsubscribe = auth.onAuthStateChanged( userAuth => {
+      unsubscribe();
+      resolve(userAuth);
+    },reject)
+  })
+}
+
 export default firebase;
