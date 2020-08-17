@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useEffect} from 'react';
 import { connect } from "react-redux";
 import { Route,Switch,Redirect } from "react-router-dom";
 
@@ -12,13 +12,12 @@ import { checkUserSession } from "./redux/user/user.action";
 
 import './App.css';
 
-class App extends React.Component {
+const App = ({ checkUserSession,currentUser }) => {
 
-  componentDidMount(){
-    const { checkUserSession } = this.props;
+  useEffect(() => {
     checkUserSession();
-  }
-  render(){
+  },[checkUserSession]);
+
     return (
       <div>
       <Header/>
@@ -29,13 +28,12 @@ class App extends React.Component {
           exact 
           path="/signin" 
           render= {() => 
-            this.props.currentUser ? (<Redirect to="/" />) : (<SignInAndSignUP/>)
+            currentUser ? (<Redirect to="/" />) : (<SignInAndSignUP/>)
           }/>
         <Route exact path="/checkout" component={CheckoutPage}/>
       </Switch>
       </div>
     );
-  }
 }
 
 const mapStateToProps = ({user}) => {
